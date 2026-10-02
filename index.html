@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAMFBMVEUAAAClpZ3c3NRfX1ojIw+EhABiYg4UFBDS0rOJiXQEBAR4eHj///+qqlWNjY3//wAKXwHZAAAAEHRSTlMC/f398f7+o/7+ZgIBA7wBhnlLZQAAAY1JREFUeNpVkb9LW1EUxz/3vmfjy4++e51ChlItLa1dDBnEQcxgcezqKIVKl0LGutkp6T9QOjqLQ4ljhwa6pCAhi4IoJA6FKJqb99L3SNXn65CXSr/jh8M5n3OOANI7UTv6bv8EQJC5ne+CUP4lABY3dqgdJzV4+gsACX+KemAoKSYgtVhWiPBHhSS7nOk5PVcgaQozSvRFrNcjXmxgkb3JP+nn5Xx8chh6LSS/xRAPASJy/QqSbNaNXfrGuBsibiOJfdPxz2LjtwGwCejPGoX/bD1IPGiUlefxujoRo4xQim9byS6Qnop714+OOy97hF0LGtnmxexDbzrXzIuga5NZyyjXAFfDGJAEtwqgY7xtrcEC667gOIXV56PH0nn1VUD6/YGIpq42R5+PJweQteLSR52v5gZjDyqfuP7CFncqAQAjtv+Z/hcJtKlhTdfuKxbovcm9+1BN1gce1IVbr43CMUgt0yoB5ztvxyDSYEDsjT8lXdBaa51MxfbSygBwxH4ASMIVY4wx5nRmE+Av6siH2w8xDOEAAAAASUVORK5CYII=" type="image/png">
+<title>Macrobit Interactive</title>
+<meta name="description" content="An independent game studio run by Liam Flannery and John Salvaris in Sydney, Australia. Makers of Factory 95.">
+<style>
+/* Layout: one left-aligned column on a 16px pixel grid, like the business card. Everything centred: socials and email as plain underlined links, Factory 95 is the only colour on the page. */
+@font-face { font-family: "Macrobit Pixel"; src: url(data:font/woff;base64,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) format("woff"); font-display: block; }
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --w95-face: #c0c0c0;
+  --w95-shadow: #808080;
+  --w95-navy: #000080;
+  --px: "Macrobit Pixel", ui-monospace, "Courier New", monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { background: var(--black); }
+body {
+  background: var(--black); color: var(--white);
+  font: 16px/24px var(--px);
+  -webkit-font-smoothing: none; font-smooth: never;
+  margin: 0; padding-inline: 16px; padding-block: 64px;
+}
+main { max-width: 560px; margin-inline: auto; display: grid; gap: 64px; text-align: center; }
+h1, h2, p { margin: 0; font-weight: normal; }
+h1 { font-size: 32px; line-height: 32px; }
+.intro { display: grid; gap: 16px; }
+
+a { color: var(--white); text-decoration: none; }
+a:hover, a:focus-visible { background: var(--white); color: var(--black); outline: none; }
+
+.links { list-style: none; margin: 0; padding: 0; display: grid; justify-items: center; gap: 16px; }
+.links a:not(.w95) { text-decoration: underline; text-underline-offset: 4px; padding: 0 4px; }
+.links .f95 { margin-top: 16px; }
+
+/* Factory 95: a Windows 95 push button */
+.w95 {
+  display: inline-flex; align-items: center; gap: 16px;
+  padding: 12px 20px 12px 12px;
+  background: var(--w95-face); color: var(--black);
+  border: 0; border-radius: 0;
+  box-shadow: inset -2px -2px 0 var(--black), inset 2px 2px 0 var(--white), inset -4px -4px 0 var(--w95-shadow), inset 4px 4px 0 #dfdfdf;
+  line-height: 16px; max-width: 100%;
+}
+.w95:hover { background: var(--w95-face); color: var(--black); }
+.w95:active { box-shadow: inset 2px 2px 0 var(--black), inset -2px -2px 0 var(--white), inset 4px 4px 0 var(--w95-shadow), inset -4px -4px 0 #dfdfdf; padding: 13px 19px 11px 13px; }
+.w95:focus-visible { background: var(--w95-face); color: var(--black); outline: 1px dotted var(--black); outline-offset: -8px; }
+.w95 img { flex: none; display: block; }
+.w95 span { display: grid; gap: 4px; text-align: left; }
+.w95 b { font-weight: normal; text-decoration: underline; text-underline-offset: 3px; }
+
+.signup { display: grid; gap: 16px; }
+.signup form { display: grid; grid-template-columns: 1fr 1fr auto; gap: 16px; align-items: end; text-align: left; }
+.field { display: grid; gap: 0; min-width: 0; }
+input {
+  font: inherit; color: var(--white); background: var(--black);
+  border: 2px solid var(--white); border-radius: 0;
+  padding: 6px 8px; height: 48px; width: 100%; min-width: 0;
+}
+input::placeholder { color: var(--w95-shadow); }
+input:focus-visible { outline: 2px solid var(--white); outline-offset: 2px; }
+button[type=submit] {
+  font: inherit; height: 48px; padding: 0 16px; border: 2px solid var(--white); border-radius: 0;
+  background: var(--white); color: var(--black); cursor: pointer;
+}
+button[type=submit]:hover, button[type=submit]:focus-visible { background: var(--black); color: var(--white); outline: none; }
+button[type=submit][disabled] { opacity: .6; cursor: wait; }
+.status { min-height: 32px; }
+@media (max-width: 560px) {
+  body { padding-block: 32px; }
+  main { gap: 48px; }
+  h1 { font-size: 24px; }  /* still 1.5x the pixel grid; 32px overflows at phone width */
+    .signup form { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<main>
+  <header class="intro">
+    <h1>macrobit interactive</h1>
+    <p>An independent game studio run by Liam Flannery and John Salvaris in Sydney, Australia</p>
+  </header>
+
+  <ul class="links">
+    <li><a href="https://bsky.app/profile/liamflannery.bsky.social">Bluesky</a></li>
+    <li><a href="https://x.com/liamflannery56">Twitter</a></li>
+    <li><a href="https://www.tiktok.com/@liamflannery">TikTok</a></li>
+    <li><a href="https://www.youtube.com/@liamflannery5656">YouTube</a></li>
+    <li>Liam: <a href="mailto:liam@macrobit.com.au">liam@macrobit.com.au</a></li>
+    <li>John: <a href="mailto:john@macrobit.com.au">john@macrobit.com.au</a></li>
+    <li class="f95">
+      <a class="w95" href="https://store.steampowered.com/app/3987250/Factory_95/">
+        <img src="data:image/png;base64,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" width="45" height="56" alt="">
+        <span><b>Factory 95</b>Play it on Steam</span>
+      </a>
+    </li>
+  </ul>
+
+  <section class="signup" aria-labelledby="ml-h">
+    <h2 id="ml-h">Mailing list</h2>
+    <p>Get emails about new games, betas and playtests.</p>
+    <form id="ml-form" novalidate>
+      <label class="field" for="ml-email">Email
+        <input id="ml-email" name="fields[email]" type="email" autocomplete="email" required>
+      </label>
+      <label class="field" for="ml-name">Name (optional)
+        <input id="ml-name" name="fields[name]" type="text" autocomplete="given-name">
+      </label>
+      <button type="submit" id="ml-submit">Sign up</button>
+    </form>
+    <p class="status" id="ml-status" role="status"></p>
+  </section>
+
+</main>
+
+<script>
+// MailerLite embedded form "macrobit.com.au website signup" (adds to the Subscribers group, double opt-in).
+const ML_ACCOUNT = "1373958";
+const ML_FORM = "200203183288485426";
+const form = document.getElementById("ml-form");
+const status = document.getElementById("ml-status");
+const btn = document.getElementById("ml-submit");
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const email = document.getElementById("ml-email");
+  if (!email.value || !email.checkValidity()) { status.textContent = "Enter a valid email address."; email.focus(); return; }
+  if (!/^\d+$/.test(ML_FORM)) { status.textContent = "Sign-up isn't connected yet."; return; }
+  btn.disabled = true; btn.textContent = "Signing up";
+  const data = new FormData(form); data.append("ml-submit", "1"); data.append("anticsrf", "true");
+  try {
+    const r = await fetch(`https://assets.mailerlite.com/jsonp/${ML_ACCOUNT}/forms/${ML_FORM}/subscribe`, { method: "POST", body: data });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok || j.success === false) throw new Error();
+    form.hidden = true;
+    status.textContent = "You're on the list. Check your inbox to confirm.";
+  } catch {
+    status.textContent = "That didn't go through. Try again, or email liam@macrobit.com.au.";
+    btn.disabled = false; btn.textContent = "Sign up";
+  }
+});
+</script>
+</body>
+</html>
