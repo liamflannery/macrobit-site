@@ -55,27 +55,11 @@ a:hover, a:focus-visible { background: var(--white); color: var(--black); outlin
 .w95 b { font-weight: normal; text-decoration: underline; text-underline-offset: 3px; }
 
 .signup { display: grid; gap: 16px; }
-.signup form { display: grid; grid-template-columns: 1fr 1fr auto; gap: 16px; align-items: end; text-align: left; }
-.field { display: grid; gap: 0; min-width: 0; }
-input {
-  font: inherit; color: var(--white); background: var(--black);
-  border: 2px solid var(--white); border-radius: 0;
-  padding: 6px 8px; height: 48px; width: 100%; min-width: 0;
-}
-input::placeholder { color: var(--w95-shadow); }
-input:focus-visible { outline: 2px solid var(--white); outline-offset: 2px; }
-button[type=submit] {
-  font: inherit; height: 48px; padding: 0 16px; border: 2px solid var(--white); border-radius: 0;
-  background: var(--white); color: var(--black); cursor: pointer;
-}
-button[type=submit]:hover, button[type=submit]:focus-visible { background: var(--black); color: var(--white); outline: none; }
-button[type=submit][disabled] { opacity: .6; cursor: wait; }
-.status { min-height: 32px; }
+.sender-form-field { min-height: 200px; }
 @media (max-width: 560px) {
   body { padding-block: 32px; }
   main { gap: 48px; }
   h1 { font-size: 24px; }  /* still 1.5x the pixel grid; 32px overflows at phone width */
-    .signup form { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -104,45 +88,20 @@ button[type=submit][disabled] { opacity: .6; cursor: wait; }
   <section class="signup" aria-labelledby="ml-h">
     <h2 id="ml-h">Mailing list</h2>
     <p>Get emails about new games, betas and playtests.</p>
-    <form id="ml-form" novalidate>
-      <label class="field" for="ml-email">Email
-        <input id="ml-email" name="fields[email]" type="email" autocomplete="email" required>
-      </label>
-      <label class="field" for="ml-name">Name (optional)
-        <input id="ml-name" name="fields[name]" type="text" autocomplete="given-name">
-      </label>
-      <button type="submit" id="ml-submit">Sign up</button>
-    </form>
-    <p class="status" id="ml-status" role="status"></p>
+    <div class="sender-form-field" data-sender-form-id="aM83VA"></div>
   </section>
 
 </main>
 
 <script>
-// MailerLite embedded form "macrobit.com.au website signup" (adds to the Subscribers group, double opt-in).
-const ML_ACCOUNT = "1373958";
-const ML_FORM = "200203183288485426";
-const form = document.getElementById("ml-form");
-const status = document.getElementById("ml-status");
-const btn = document.getElementById("ml-submit");
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const email = document.getElementById("ml-email");
-  if (!email.value || !email.checkValidity()) { status.textContent = "Enter a valid email address."; email.focus(); return; }
-  if (!/^\d+$/.test(ML_FORM)) { status.textContent = "Sign-up isn't connected yet."; return; }
-  btn.disabled = true; btn.textContent = "Signing up";
-  const data = new FormData(form); data.append("ml-submit", "1"); data.append("anticsrf", "true");
-  try {
-    const r = await fetch(`https://assets.mailerlite.com/jsonp/${ML_ACCOUNT}/forms/${ML_FORM}/subscribe`, { method: "POST", body: data });
-    const j = await r.json().catch(() => ({}));
-    if (!r.ok || j.success === false) throw new Error();
-    form.hidden = true;
-    status.textContent = "You're on the list. Check your inbox to confirm.";
-  } catch {
-    status.textContent = "That didn't go through. Try again, or email liam@macrobit.com.au.";
-    btn.disabled = false; btn.textContent = "Sign up";
-  }
-});
+// Sender embedded form "macrobit.com.au website signup" (adds to the Macrobit mailing list group). Styled in Sender's form builder to match this page.
+(function (s, e, n, d, er) {
+  s['Sender'] = er;
+  s[er] = s[er] || function () { (s[er].q = s[er].q || []).push(arguments) }, s[er].l = 1 * new Date();
+  var a = e.createElement(n), m = e.getElementsByTagName(n)[0];
+  a.async = 1; a.src = d; m.parentNode.insertBefore(a, m)
+})(window, document, 'script', 'https://cdn.sender.net/accounts_resources/universal.js', 'sender');
+sender('4b2f3b66601478');
 </script>
 </body>
 </html>
